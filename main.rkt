@@ -5,3 +5,14 @@
          ((NULL? L) L)
          ((LIST? (CAR L)) (append (reverse-general (CDR L)) (CONS (reverse-general (CAR L)) '())))
          (ELSE (append (reverse-general (CDR L)) (LIST(CAR L))))))
+
+
+;;; This procedure takes a list L as an arguement.
+;;; Returns the simple sum of numbers not in nested lists in L.
+(DEFINE (sum-up-numbers-simple L)
+        (COND
+         ((LIST? (CAR L)) 0)
+         (ELSE + (CAR L) (sum-up-numbers-simple (CDR L)))))
+
+
+(sum-up-numbers-simple '(1 2 () 3))
