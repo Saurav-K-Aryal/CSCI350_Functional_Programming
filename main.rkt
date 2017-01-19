@@ -5,5 +5,3 @@
          ((NULL? L) L)
          ((LIST? (CAR L)) (append (reverse-general (CDR L)) (CONS (reverse-general (CAR L)) '())))
          (ELSE (append (reverse-general (CDR L)) (LIST(CAR L))))))
-
-(reverse-general (QUOTE (a (f c))))
