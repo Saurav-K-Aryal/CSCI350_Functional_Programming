@@ -17,9 +17,13 @@
          (ELSE (sum-up-numbers-simple (CDR L)))))
 
 
+;;; This procedure takes a list L as an arguement.
+;;; Returns the sum of the numbers even within the sublists of L.
 (DEFINE (sum-up-numbers-general L)
         (COND
          ((NULL? L) 0)
          ((LIST? (CAR L))(+ (sum-up-numbers-general (CAR L)) (sum-up-numbers-general (CDR L))))
          ((NUMBER? (CAR L)) (+(CAR L) (sum-up-numbers-general (CDR L))))
          (ELSE (sum-up-numbers-general (CDR L)))))
+
+
