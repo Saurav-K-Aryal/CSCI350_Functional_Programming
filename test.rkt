@@ -23,5 +23,22 @@
 (check-equal? (sum-up-numbers-simple '((100))) 0)
 (check-equal? (sum-up-numbers-simple '(100 (200))) 100)
 (check-equal? (sum-up-numbers-simple '(a 100 b (200) c 300 d)) 400)
+
 (DISPLAY "All test cases for sum-up-numbers-simple are done!")
 (newline)
+
+;;; Unit Test Cases for sum-up-numbers-general
+(check-equal? (sum-up-numbers-general '()) 0)
+(check-equal? (sum-up-numbers-general '(100)) 100)
+(check-equal? (sum-up-numbers-general '(100 200)) 300)
+(check-equal? (sum-up-numbers-general '(a)) 0)
+(check-equal? (sum-up-numbers-general '(a 100 b 200 c 300 d)) 600)
+(check-equal? (sum-up-numbers-general '(())) 0)
+(check-equal? (sum-up-numbers-general '((100))) 100)
+(check-equal? (sum-up-numbers-general '(100 (200))) 300)
+(check-equal? (sum-up-numbers-general '(a 100 b (200) c 300 d)) 600)
+(check-equal? (sum-up-numbers-general '(a 100 ((b ((200) c)) 300 d))) 600)
+
+(DISPLAY "All test cases for sum-up-numbers-general are done!")
+
+
