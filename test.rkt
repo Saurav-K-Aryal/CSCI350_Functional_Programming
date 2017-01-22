@@ -58,3 +58,6 @@
 (DISPLAY "All test cases for min_list_val are done!")
 (newline)
 
+;;; Unit Test Cases for max_min_val
+(check-equal? (max_min_val '(a 100 b 200 c 300) 92337203654775807 92337203654775807) #F)
+
