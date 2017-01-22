@@ -38,7 +38,7 @@
 
 
 ;; This procedure takes a list L as an arguement and two numbers as arguements.
-;; Returns the minimum number in the lists greater than the passed limit number.
+;; Returns the minimum number in the lists >= than the passed limit number.
 (DEFINE (max_min_val L limit_num max_diff)
         (COND
          ((NULL? L) (COND
