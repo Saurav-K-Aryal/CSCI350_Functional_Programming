@@ -59,5 +59,7 @@
 (newline)
 
 ;;; Unit Test Cases for max_min_val
-(check-equal? (max_min_val '(a 100 b 200 c 300) 92337203654775807 92337203654775807) #F)
+(check-equal? (max_min_val '(a 100 b 200 c 300) 92337203654775807 184674407309551514) #F)
+(check-equal? (max_min_val '() 100 184674407309551514) #F)
+
 

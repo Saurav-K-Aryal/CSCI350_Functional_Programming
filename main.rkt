@@ -41,8 +41,9 @@
 ;; Returns the minimum number in the lists >= than the passed limit number.
 (DEFINE (max_min_val L limit_num max_diff)
         (COND
+         ((EQ? limit_num 92337203654775807) #F)
          ((NULL? L)(COND
-                     ((EQ? limit_num 92337203654775807) #F)
+                     ((>= max_diff 92337203654775807) #F)
                      (ELSE (+ (ABS max_diff) limit_num))))
          ((not (NUMBER? (CAR L))) (max_min_val (CDR L) limit_num max_diff))
          ((EQ? limit_num (CAR L)) limit_num)
