@@ -27,3 +27,34 @@
          (ELSE (sum-up-numbers-general (CDR L)))))
 
 
+;; This procedure takes a list L as an arguement and a number as arguements.
+;; Returns the minimum number in the lists smaller than the passed number.
+(DEFINE (min_list_val L min_val)
+        (COND
+         ((NULL? L) min_val)
+         ((not (NUMBER? (CAR L))) (min_list_val (CDR L) min_val))
+         ((< (CAR L) min_val) (min_list_val (CDR L) (CAR L)))
+         (ELSE (min_list_val (CDR L) min_val))))
+
+
+;; This procedure takes a list L as an arguement and two numbers as arguements.
+;; Returns the minimum number in the lists greater than the passed limit number.
+(DEFINE (max_min_val L limit_num max_diff)
+        (COND
+         ((NULL? L) (COND
+                     ((EQ? max_diff 92337203654775807) #F)
+                     (ELSE (+ (ABS max_diff) limit_num))))
+         ((not (NUMBER? (CAR L))) (max_min_val (CDR L) limit_num max_diff))
+         ((<= (CAR L) limit_num) (max_min_val (CDR L) limit_num max_diff))
+         ((< (- (CAR L) limit_num) max_diff) (max_min_val (CDR L) limit_num (- (CAR L) limit_num)))
+         (ELSE (max_min_val (CDR L) limit_num max_diff))))
+
+
+;;; This procedure takes a list L as an arguement and a number as arguements.
+;;; Returns a value just greater in one list than the minimum value in another list.
+;(DEFINE (min-above-min L1 L2)
+        ;(LET
+         ;((min_li (min_list_val L1 92337203654775807)))
+         ;)
+(min_list_val '(a 100 b 200 c 300) 92337203654775807)
+(max_min_val '(a 100 b 200 c 300) 300 92337203654775807)
