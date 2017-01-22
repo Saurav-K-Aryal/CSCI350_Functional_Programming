@@ -40,5 +40,12 @@
 (check-equal? (sum-up-numbers-general '(a 100 ((b ((200) c)) 300 d))) 600)
 
 (DISPLAY "All test cases for sum-up-numbers-general are done!")
+(newline)
 
+;;; Unit Test Cases for min_list_val
+(check-equal? (min_list_val '() 92337203654775807) 92337203654775807)
+(check-equal? (min_list_val '() 92337203654775807) 92337203654775807)
+
+
+(DISPLAY "All test cases for min_list_val are done!")
 
