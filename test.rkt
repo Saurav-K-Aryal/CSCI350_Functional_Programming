@@ -85,6 +85,9 @@
 (check-equal? (min-above-min '(a) '()) #F)
 (check-equal? (min-above-min '(a b c) '(a 200 b 100 c 300 d)) #F)
 (check-equal? (min-above-min '(a 200) '(a 200 b 100 c 300 d)) 200)
+(check-equal? (min-above-min '(a 100) '(a 200 b 100 c 300 d)) #F)
+(check-equal? (min-above-min '(100 200 300) '(300 200 100)) 200)
+(check-equal? (min-above-min '(a 300 b 100 c 200 d)  '(a 200 b 300 c 100 d)) 200)
 
 (DISPLAY "All test cases for min-above-min are done!")
 (newline)
