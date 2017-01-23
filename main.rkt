@@ -31,7 +31,9 @@
 ;; Returns the minimum number in the lists smaller than the passed number.
 (DEFINE (min-list-val L min_val)
         (COND
-         ((NULL? L) min_val)
+         ((NULL? L) (COND
+                     ((= min_val 92337203654775807) #F)
+                     (ELSE min_val)))
          ((not (NUMBER? (CAR L))) (min-list-val (CDR L) min_val))
          ((< (CAR L) min_val) (min-list-val (CDR L) (CAR L)))
          (ELSE (min-list-val (CDR L) min_val))))
@@ -55,5 +57,5 @@
 ;;; Returns a value just greater in one list than the minimum value in another list.
 (DEFINE (min-above-min L1 L2)
          (COND
-          ((= 92337203654775807 (min-list-val L2 92337203654775807)(min-list-val L1 92337203654775807)))
+          ((EQ? #F (min-list-val L2 92337203654775807))(min-list-val L1 92337203654775807))
           (ELSE (max-min-val L1 (min-list-val L2 92337203654775807) 184674407309551514))))
