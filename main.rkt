@@ -29,35 +29,31 @@
 
 ;; This procedure takes a list L as an arguement and a number as arguements.
 ;; Returns the minimum number in the lists smaller than the passed number.
-(DEFINE (min_list_val L min_val)
+(DEFINE (min-list-val L min_val)
         (COND
          ((NULL? L) min_val)
-         ((not (NUMBER? (CAR L))) (min_list_val (CDR L) min_val))
-         ((< (CAR L) min_val) (min_list_val (CDR L) (CAR L)))
-         (ELSE (min_list_val (CDR L) min_val))))
+         ((not (NUMBER? (CAR L))) (min-list-val (CDR L) min_val))
+         ((< (CAR L) min_val) (min-list-val (CDR L) (CAR L)))
+         (ELSE (min-list-val (CDR L) min_val))))
 
 
 ;; This procedure takes a list L as an arguement and two numbers as arguements.
 ;; Returns the minimum number in the lists >= than the passed limit number.
-(DEFINE (max_min_val L limit_num max_diff)
+(DEFINE (max-min-val L limit_num max_diff)
         (COND
          ((EQ? limit_num 92337203654775807) #F)
          ((NULL? L)(COND
                      ((>= max_diff 92337203654775807) #F)
                      (ELSE (+ (ABS max_diff) limit_num))))
-         ((not (NUMBER? (CAR L))) (max_min_val (CDR L) limit_num max_diff))
-         ((= limit_num (CAR L)) (max_min_val (CDR L) limit_num max_diff))
-         ((< (ABS (- limit_num (CAR L))) max_diff) (max_min_val (CDR L) limit_num (ABS (- limit_num (CAR L)))))
-         (ELSE (max_min_val (CDR L) limit_num max_diff))))
+         ((not (NUMBER? (CAR L))) (max-min-val (CDR L) limit_num max_diff))
+         ((= limit_num (CAR L)) (max-min-val (CDR L) limit_num max_diff))
+         ((< (ABS (- limit_num (CAR L))) max_diff) (max-min-val (CDR L) limit_num (ABS (- limit_num (CAR L)))))
+         (ELSE (max-min-val (CDR L) limit_num max_diff))))
 
 
 ;;; This procedure takes a list L as an arguement and a number as arguements.
 ;;; Returns a value just greater in one list than the minimum value in another list.
 (DEFINE (min-above-min L1 L2)
-        (LET
-         ((max_int 92337203654775807))
-         ((max_diff 184674407309551514))
-         ((min_l2 (min_list_val L2 max_int)))
          (COND
-          ((= max_int min_l2)(min_list_val L1 max_int))
-          (ELSE (max_min_val L1 min_l2 max_diff)))))
+          ((= 92337203654775807 (min-list-val L2 92337203654775807)(min-list-val L1 92337203654775807)))
+          (ELSE (max-min-val L1 (min-list-val L2 92337203654775807) 184674407309551514))))
