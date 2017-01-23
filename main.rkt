@@ -46,8 +46,8 @@
                      ((>= max_diff 92337203654775807) #F)
                      (ELSE (+ (ABS max_diff) limit_num))))
          ((not (NUMBER? (CAR L))) (max_min_val (CDR L) limit_num max_diff))
-         ((EQ? limit_num (CAR L)) limit_num)
-         ((< (- (CAR L) limit_num) max_diff) (max_min_val (CDR L) limit_num (- (CAR L) limit_num)))
+         ((= limit_num (CAR L)) (max_min_val (CDR L) limit_num max_diff))
+         ((< (ABS (- limit_num (CAR L))) max_diff) (max_min_val (CDR L) limit_num (ABS (- limit_num (CAR L)))))
          (ELSE (max_min_val (CDR L) limit_num max_diff))))
 
 

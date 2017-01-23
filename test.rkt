@@ -61,5 +61,17 @@
 ;;; Unit Test Cases for max_min_val
 (check-equal? (max_min_val '(a 100 b 200 c 300) 92337203654775807 184674407309551514) #F)
 (check-equal? (max_min_val '() 100 184674407309551514) #F)
+(check-equal? (max_min_val '(a 100 b 200 c 300) 92337203654775807 184674407309551514) #F)
+(check-equal? (max_min_val '(a) 92337203654775807 184674407309551514) #F)
+(check-equal? (max_min_val '() 92337203654775807 184674407309551514) #F)
+(check-equal? (max_min_val '(a) 100 184674407309551514) #F)
+(check-equal? (max_min_val '(a b c) 100 184674407309551514) #F)
+(check-equal? (max_min_val '(a 200) 100 184674407309551514) 200)
+(check-equal? (max_min_val '(200 100 300) 100 184674407309551514) 200)
+(check-equal? (max_min_val '(a 200 b 100 c 300 d) 100 184674407309551514) 200)
+
+(DISPLAY "All test cases for max_min_val are done!")
+(newline)
+
 
 
