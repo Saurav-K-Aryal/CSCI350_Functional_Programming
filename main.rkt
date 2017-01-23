@@ -53,7 +53,11 @@
 
 ;;; This procedure takes a list L as an arguement and a number as arguements.
 ;;; Returns a value just greater in one list than the minimum value in another list.
-;(DEFINE (min-above-min L1 L2)
-        ;(LET
-         ;((min_li (min_list_val L1 92337203654775807)))
-         ;)
+(DEFINE (min-above-min L1 L2)
+        (LET
+         ((max_int 92337203654775807))
+         ((max_diff 184674407309551514))
+         ((min_l2 (min_list_val L2 max_int)))
+         (COND
+          ((= max_int min_l2)(min_list_val L1 max_int))
+          (ELSE (max_min_val L1 min_l2 max_diff)))))
