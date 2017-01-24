@@ -8,7 +8,7 @@
 
 
 ;;; This procedure takes a list L as an arguement.
-;;; Returns the simple sum of numbers not in nested lists in L.
+;;; Returns the simple sum of numbers excludes the nested lists in L.
 (DEFINE (sum-up-numbers-simple L)
         (COND
          ((NULL? L) 0)
@@ -27,7 +27,7 @@
          (ELSE (sum-up-numbers-general (CDR L)))))
 
 
-;; This procedure takes a list L as an arguement and a number as arguements.
+;; This procedure takes a list L and a number as arguements.
 ;; Returns the minimum number in the lists smaller than the passed number.
 (DEFINE (min-list-val L min_val)
         (COND
@@ -53,8 +53,9 @@
          (ELSE (max-min-val (CDR L) limit_num max_diff))))
 
 
-;;; This procedure takes a list L as an arguement and a number as arguements.
-;;; Returns a value just greater in one list than the minimum value in another list.
+;;; This procedure takes two lists L1 and L2 as arguements.
+;;; Returns a value just greater in L1 than the minimum value of L2.
+;;; If L2 doesn't have a minimum, L1's minimum is returned.
 (DEFINE (min-above-min L1 L2)
          (COND
           ((EQ? #F (min-list-val L2 92337203654775807))(min-list-val L1 92337203654775807))
